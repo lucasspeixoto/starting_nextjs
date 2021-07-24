@@ -1,32 +1,27 @@
 import { useState } from 'react';
 
-function Home() {
+function Calculator() {
+ 
+  const [x, setX] = useState(0);
+  const [y, setY] = useState(0);
+
   return (
-    <>
-    <div>Home</div>
-    <Contador />
-    </>
+    <div style={{ background: '#afff', border: '1px solid', width: '30%' }}>
+      <h3>Calculator</h3>
+      <input
+        type="number"
+        style={{ width: '30px', margin: '5px' }}
+        onChange={x => setX(+x.target.value)}>
+      </input>
+      <span>+</span>
+      <input
+        type="number"
+        style={{ width: '30px', margin: '5px' }}
+        onChange={y => setY(+y.target.value)}></input>
+      <span> = {x + y}</span>
+
+    </div >
   )
 }
 
-function Contador() {
-  const [cont, setCont] = useState(1);
-
-  function addCont() {
-    setCont(cont + 1)
-  }
-  function subCont() {
-    setCont(cont - 1)
-  }
-
-  return (
-    <div>
-      <div>{cont}</div>
-      <button onClick={addCont}>Add</button>
-      <p></p>
-      <button onClick={subCont}>Remove</button>
-    </div>
-  )
-}
-
-export default Home;
+export default Calculator;
